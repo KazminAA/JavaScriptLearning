@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 1 Test</title>
+    <script src="hw1.js"></script>
+</head>
+<body>
+<script>
+	let n = prompt('Enter number of fibonachi number', 1);
+	console.log('Result fibonachi recursion: ' + fibonachiRec(n));
+	console.log('Result fibonachi iteration: ' + fibonachiLoop(n));
+	n = prompt('Enter number wich factorial you want: ', 1);
+	console.log('Result factorial recursion: ' + factorialRec(n));
+	console.log('Result factorial iteration: ' + factorialLoop(n));
+	console.log('Greatest Common Divisor of 24 and 18 is: ', gcd(24, 18));
+	console.log('Lowest Common Denominator of 35 and 30 is: ', lcd(35, 30));
+	let arr1 = [1, 5, 10, 11, 14, 33, -5];
+	let arr2 = [1, 5, 10, 88, 11, 36, 44, 50, 53];
+	alert(findNotMatching(arr1, arr2));
+</script>
+</body>
+</html>
