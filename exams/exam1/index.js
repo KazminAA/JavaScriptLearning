@@ -18,8 +18,7 @@ function _getSumOfDividers(num) { //return sum dividers of num
 	for (let i = 2; i <= end; i++) {
 		if (num % i === 0) {
 			sum += i;
-			let od = num / i;
-			if (i !== od) sum += od;
+			if (i !== num / i) sum += num / i;
 		}
 	}
 	return sum;
