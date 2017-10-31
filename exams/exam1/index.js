@@ -3,9 +3,11 @@ function getFriendlyNumbers(start, end) {
 	let result = [];
 	for (let i = start; i <= end; i++) {
 		let num1 = _getSumOfDividers(i);
-		let num2 = _getSumOfDividers(num1);
-		if ((num2 === i) && (num1 !== i) && (num2 > num1) && (num1 > start)) {
-			result.push([num1, num2]);
+		if (num1 > i) {
+			let num2 = _getSumOfDividers(num1);
+			if ((num2 === i) && (num2 > start) && (num2 < end)) {
+				result.push([num2, num1]);
+			}
 		}
 	}
 	return result;
@@ -16,7 +18,8 @@ function _getSumOfDividers(num) { //return sum dividers of num
 	for (let i = 2; i <= end; i++) {
 		if (num % i === 0) {
 			sum += i;
-			if (i !== num / i) sum += num / i;
+			let od = num / i;
+			if (i !== od) sum += od;
 		}
 	}
 	return sum;
