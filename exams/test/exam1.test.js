@@ -1,4 +1,4 @@
-const student = require('../exam1');
+const student = require('../exam1/index');
 
 describe('Exam 1', () => {
 	it(`Exam1 of ${student.firstName} ${student.secondName}`, () => {
