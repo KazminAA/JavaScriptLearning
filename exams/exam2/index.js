@@ -157,4 +157,4 @@ module.exports = {
 	firstName: 'Alexandr',
 	lastName: 'Kazmin',
 	task: ProjectModule.getInstance()
-}
+};
