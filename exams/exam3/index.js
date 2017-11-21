@@ -78,6 +78,14 @@ const NewsFeedModule = (function () {
 						}
 					},
 					query(queryString) {
+                        if (this._isBusy === true) {
+                            return false;
+                        }
+                        this._isBusy = true;
+                        let uniqeWords = queryString.split(' ').filter(function (currentItem, i, allItems) {
+                            return (i === allItems.indexOf(currentItem));
+                        });
+                        return uniqeWords;
 					}
 
 				}
