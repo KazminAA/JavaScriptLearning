@@ -158,12 +158,12 @@ describe('Exam 3', () => {
 		 newsFeed.init([
 			 {
 				 /*4 hits*/
-				 title: 'hit hit',
-				 content: 'hit hit'
+				 title: 'hit hit+',
+				 content: 'hit "hit"'
 			 },
 			 {
 				 /* 5 hits*/
-				 title: 'hit hit hit',
+				 title: 'hit, hit hit',
 				 content: 'hit hit'
 			 },
 			 {
@@ -175,13 +175,13 @@ describe('Exam 3', () => {
 		 expect(newsFeed.query('hit')).toEqual([
 			 {
 				 /*5 hits*/
-				 title: 'hit hit hit',
+				 title: 'hit, hit hit',
 				 content: 'hit hit'
 			 },
 			 {
 				 /*4 hits*/
-				 title: 'hit hit',
-				 content: 'hit hit'
+				 title: 'hit hit+',
+				 content: 'hit "hit"'
 			 }
 		 ]);
 

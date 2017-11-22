@@ -94,8 +94,9 @@ const NewsFeedModule = (function () {
 						let result = [];
 						for (let i = 0; i < uniqeWords.length; i++) {
 							//regexp for matching all complete word to find word
-							let findReg = RegExp('(^|[\\s,!?\\.\\)\\("])' + uniqeWords[i]
-								+ '(?=[\\s,\\.!?\\)\\("]|$)', 'gi');
+							let findReg = new RegExp('\\b' + uniqeWords[i] + '\\b', 'gi');
+							/*let findReg = RegExp('(^|[\\s,!?\\.\\)\\("])' + uniqeWords[i]
+								+ '(?=[\\s,\\.!?\\)\\("]|$)', 'gi');*/
 
 							for (let j = 0; j < this._articles.length; j++) {
 								//count of matching in title and content
