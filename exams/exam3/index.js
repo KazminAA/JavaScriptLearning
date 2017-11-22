@@ -78,18 +78,18 @@ const NewsFeedModule = (function () {
 						}
 					},
 					query(queryString) {
-                        if (this._isBusy === true) {
-                            return false;
-                        }
+						if (this._isBusy === true) {
+							return false;
+						}
 
-                        this._isBusy = true;
+						this._isBusy = true;
 
 						//remove all special symbols from query string
 						queryString = queryString.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()\+]/g, "");
 						//get array of unique words from query string
 						let uniqeWords = queryString.split(' ').filter((currentItem, i, allItems) => {
-                            return (i === allItems.indexOf(currentItem));
-                        });
+							return (i === allItems.indexOf(currentItem));
+						});
 
 						let result = [];
 						for (let i = 0; i < uniqeWords.length; i++) {
