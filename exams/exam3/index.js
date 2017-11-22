@@ -81,11 +81,49 @@ const NewsFeedModule = (function () {
                         if (this._isBusy === true) {
                             return false;
                         }
+
                         this._isBusy = true;
-                        let uniqeWords = queryString.split(' ').filter(function (currentItem, i, allItems) {
+
+						//remove all special symbols from query string
+						queryString = queryString.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()\+]/g, "");
+						//get array of unique words from query string
+						let uniqeWords = queryString.split(' ').filter((currentItem, i, allItems) => {
                             return (i === allItems.indexOf(currentItem));
                         });
-                        return uniqeWords;
+
+						let result = [];
+						for (let i = 0; i < uniqeWords.length; i++) {
+							//regexp for matching all complete word to find word
+							let findReg = RegExp('(^|[\\s,!?\\.\\)\\("])' + uniqeWords[i]
+								+ '(?=[\\s,\\.!?\\)\\("]|$)', 'gi');
+
+							for (let j = 0; j < this._articles.length; j++) {
+								//count of matching in title and content
+								let count = (this._articles[j]['title'].match(findReg) || []).length +
+									(this._articles[j]['content'].match(findReg) || []).length;
+
+								/*if matches exists add this object to array with match count,
+								if this is the next word and there is a previous match summaraize it*/
+								if (count) {
+									if (result[j]) {
+										result[j][1] += count;
+									} else {
+										result[j] = [this._articles[j], count];
+									}
+								}
+
+							}
+
+						}
+
+						this._isBusy = false;
+						//sorting result array by match cound and return without it
+						return result.sort((e1, e2) => {
+							return e2[1] - e1[1];
+						})
+							.map((e) => {
+								return e[0]
+							});
 					}
 
 				}

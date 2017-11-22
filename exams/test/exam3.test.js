@@ -154,46 +154,47 @@ describe('Exam 3', () => {
 	});
 
 	/* QUERY */
-	/*  it('Should return sorted articles list that correspond to the query', () => {
+	it('Should return sorted articles list that correspond to the query', () => {
 		 newsFeed.init([
 			 {
-				 4 hits
+				 /*4 hits*/
 				 title: 'hit hit',
 				 content: 'hit hit'
 			 },
 			 {
-				 5 hits
+				 /* 5 hits*/
 				 title: 'hit hit hit',
 				 content: 'hit hit'
 			 },
 			 {
-				 no hits
+				 /*no hits*/
 				 title: 'no',
 				 content: 'no'
 			 },
 		 ]);
 		 expect(newsFeed.query('hit')).toEqual([
 			 {
-				 5 hits
+				 /*5 hits*/
 				 title: 'hit hit hit',
 				 content: 'hit hit'
 			 },
 			 {
+				 /*4 hits*/
 				 title: 'hit hit',
 				 content: 'hit hit'
 			 }
 		 ]);
 
-	 }); */
+	});
 
-	/*  it('Should return empty array if query does not correspond to any article', () => {
+	it('Should return empty array if query does not correspond to any article', () => {
 		 newsFeed.init([
 			 {
-				 no hits
+				 /*no hits*/
 				 title: 'no',
 				 content: 'no'
 			 }
 		 ]);
 		 expect(newsFeed.query('query')).toEqual([]);
-	 }); */
+	});
 });
